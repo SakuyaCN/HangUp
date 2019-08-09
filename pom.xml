@@ -23,6 +23,10 @@
       <id>spigot-repo</id>
       <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
     </repository>
+    <repository>
+      <id>dmulloy2-repo</id>
+      <url>http://repo.dmulloy2.net/nexus/repository/public/</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -43,6 +47,16 @@
       <groupId>com.googlecode.lambdaj</groupId>
       <artifactId>lambdaj</artifactId>
       <version>2.3.3</version>
+    </dependency>
+      <dependency>
+          <groupId>io.netty</groupId>
+          <artifactId>netty-buffer</artifactId>
+          <version>4.1.37.Final</version>
+      </dependency>
+    <dependency>
+      <groupId>com.comphenix.protocol</groupId>
+      <artifactId>ProtocolLib</artifactId>
+      <version>4.4.0</version>
     </dependency>
   </dependencies>
 

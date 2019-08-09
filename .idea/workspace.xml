@@ -7,7 +7,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5259b16c-0730-477d-bb52-a73b93ea7983" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_1_12_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_1_12_2_R0_1_SNAPSHOT_b1409.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/spigot_api_1_12_2_R0_1_SNAPSHOT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/spigot-1.12.2-R0.1-SNAPSHOT-b1409.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/BookUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/NMSUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/ReflectionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HangUp.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HangUp.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/command/PlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/command/PlayerCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/event/JoinEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/event/JoinEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/bag/BagModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/bag/BagModule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$OptionClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$OptionClickEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/skill/SkillModule$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/skill/SkillModule$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/skill/SkillModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/skill/SkillModule.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,10 +43,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/MenuConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="90" column="98" selection-start-line="90" selection-start-column="98" selection-end-line="90" selection-end-column="98" />
+            <state relative-caret-position="468">
+              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,10 +55,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="70" column="158" selection-start-line="70" selection-start-column="158" selection-end-line="70" selection-end-column="158" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/NMSUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/BookUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
+                <element signature="e#954#955#0" expanded="true" />
+                <element signature="e#2545#2575#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
+            <state relative-caret-position="244">
+              <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
               <folding>
                 <element signature="e#1214#1215#0" expanded="true" />
                 <element signature="e#1257#1258#0" expanded="true" />
@@ -48,82 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/skill/SkillModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1535#1536#0" expanded="true" />
-                <element signature="e#1584#1585#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/BagGoods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding>
-                <element signature="e#250#251#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/GoodsEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="152" selection-start-line="14" selection-start-column="152" selection-end-line="14" selection-end-column="152" />
-              <folding>
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#371#372#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#441#442#0" expanded="true" />
-                <element signature="e#996#997#0" expanded="true" />
-                <element signature="e#1027#1028#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-              <folding>
-                <element signature="e#218#219#0" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#276#277#0" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#358#359#0" expanded="true" />
-                <element signature="e#394#395#0" expanded="true" />
-                <element signature="e#424#425#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/goods/GoodsModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="56" column="119" selection-start-line="56" selection-start-column="119" selection-end-line="56" selection-end-column="119" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/IconMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="219">
+              <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -134,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="414">
+              <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,7 +145,11 @@
       <find>PlayerModule.getInstance().getPlayerYaml(uuid)</find>
       <find>64</find>
       <find>SaveBag</find>
+      <find>* @param object Given object array</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
     <dirStrings>
       <dir>E:\McPlugins\HangUp\src\main</dir>
       <dir>E:\HangUp\src\main</dir>
@@ -196,14 +184,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/CreateEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/HumCommand.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config.yml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/skill/SkillListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/MenuListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/SkillEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/player/PlayerPropertyChangeListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/PlayerAttr.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/OutEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/LoginEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/FileUtil.java" />
@@ -218,11 +204,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/GoodsEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/goods/GoodsModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/IconMenu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/skill/SkillModule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/NMSUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/ReflectionUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/BookUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java" />
       </list>
     </option>
   </component>
@@ -256,6 +247,11 @@
             <path>
               <item name="HangUp" type="b2602c69:ProjectViewProjectNode" />
               <item name="HangUp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HangUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HangUp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HangUp" type="b2602c69:ProjectViewProjectNode" />
@@ -300,6 +296,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="hangup" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HangUp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HangUp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="hangup" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="HangUp" type="b2602c69:ProjectViewProjectNode" />
@@ -409,7 +414,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -438,6 +443,7 @@
       <recent name="com.sakuya.hangup.modules.skill" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\HangUp\lib" />
       <recent name="E:\HangUp\src\main\java\com\sakuya\hangup\event" />
       <recent name="E:\McPlugins\HangUp\lib" />
     </key>
@@ -549,7 +555,7 @@
       <workItem from="1565160291563" duration="16263000" />
       <workItem from="1565227217811" duration="22134000" />
       <workItem from="1565252805970" duration="13411000" />
-      <workItem from="1565318358029" duration="23666000" />
+      <workItem from="1565318358029" duration="30547000" />
     </task>
     <task id="LOCAL-00001" summary="首次上传">
       <created>1565352082811</created>
@@ -558,11 +564,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565352082812</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="首次上传">
+      <created>1565352618250</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565352618250</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94089000" />
+    <option name="totallyTimeSpent" value="100970000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -577,7 +590,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21481876" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21481876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -595,8 +608,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32917964" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053304" side_tool="true" visible="true" weight="0.26180258" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" visible="true" weight="0.26180258" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50373137" side_tool="true" visible="true" weight="0.26180258" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49626866" visible="true" weight="0.26180258" />
       <window_info anchor="bottom" id="Duplicates" order="13" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -617,22 +630,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="首次上传" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156.jar!/org/bukkit/Bukkit.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156.jar!/org/bukkit/plugin/java/JavaPlugin.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/net/md-5/bungeecord-chat/1.12-SNAPSHOT/bungeecord-chat-1.12-20180712.114550-97.jar!/net/md_5/bungee/api/ChatMessageType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/plugin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/CreateEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -662,13 +659,6 @@
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-all/1.1/hamcrest-all-1.1.jar!/org/hamcrest/Matchers.class" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="79" lean-forward="true" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.12.2-R0.1-SNAPSHOT/spigot-api-1.12.2-R0.1-20180712.012057-156.jar!/org/bukkit/entity/Player.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -769,16 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" lean-forward="true" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/PlayerEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
@@ -858,17 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/BagGoods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <element signature="e#250#251#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-12.0.1/lib/src.zip!/java.base/java/util/Iterator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
@@ -908,49 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/MenuConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="90" column="98" selection-start-line="90" selection-start-column="98" selection-end-line="90" selection-end-column="98" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="65" column="25" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-          <folding>
-            <element signature="e#1214#1215#0" expanded="true" />
-            <element signature="e#1257#1258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/IconMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/skill/SkillModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1584#1585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/player/PlayerModule.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1234">
@@ -975,12 +901,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="58" column="9" lean-forward="true" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#218#219#0" expanded="true" />
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#394#395#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1000,19 +933,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/LvEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/BagGoods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+        <state relative-caret-position="68">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
           <folding>
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#424#425#0" expanded="true" />
+            <element signature="e#250#251#0" expanded="true" />
+            <element signature="e#284#285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/skill/SkillModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="115" column="31" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1535#1536#0" expanded="true" />
+            <element signature="e#1584#1585#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/MenuConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="90" column="98" selection-start-line="90" selection-start-column="98" selection-end-line="90" selection-end-column="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/net/md-5/bungeecord-chat/1.12-SNAPSHOT/bungeecord-chat-1.12-20180712.114550-97.jar!/net/md_5/bungee/api/chat/ComponentBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="88" column="28" selection-start-line="88" selection-start-column="28" selection-end-line="88" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/NMSUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/menu/IconMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="44" column="16" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="70" column="158" selection-start-line="70" selection-start-column="158" selection-end-line="70" selection-end-column="158" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/ReflectionUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="554" column="32" selection-start-line="554" selection-start-column="32" selection-end-line="554" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#21714#21715#0" expanded="true" />
+            <element signature="e#21754#21755#0" expanded="true" />
+            <element signature="e#21991#21992#0" expanded="true" />
+            <element signature="e#22040#22041#0" expanded="true" />
+            <element signature="e#22187#22188#0" expanded="true" />
+            <element signature="e#22222#22223#0" expanded="true" />
+            <element signature="e#22770#22771#0" expanded="true" />
+            <element signature="e#22805#22806#0" expanded="true" />
+            <element signature="e#23777#23797#0" expanded="true" />
+            <element signature="e#24652#24653#0" expanded="true" />
+            <element signature="e#24692#24693#0" expanded="true" />
+            <element signature="e#24865#24866#0" expanded="true" />
+            <element signature="e#24905#24906#0" expanded="true" />
+            <element signature="e#25174#25175#0" expanded="true" />
+            <element signature="e#25225#25226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/utils/BookUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#2545#2575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/event/JoinEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/bag/BagModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+          <folding>
+            <element signature="e#1214#1215#0" expanded="true" />
+            <element signature="e#1257#1258#0" expanded="true" />
           </folding>
         </state>
       </provider>

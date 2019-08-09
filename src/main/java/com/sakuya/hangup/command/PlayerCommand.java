@@ -9,13 +9,19 @@ import com.sakuya.hangup.modules.menu.IconMenu;
 import com.sakuya.hangup.modules.menu.MenuConfig;
 import com.sakuya.hangup.modules.player.PlayerModule;
 import com.sakuya.hangup.modules.skill.SkillModule;
+import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.Util;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
 
 public class PlayerCommand implements CommandExecutor {
     private IconMenu menu;
@@ -54,6 +60,9 @@ public class PlayerCommand implements CommandExecutor {
                     menu.setOption(2, new ItemStack(Material.CHEST, 1), "背包",
                             MenuConfig.getBagList(player.getUniqueId().toString()));
                     menu.open(player);
+                }break;
+                case "book" :{
+
                 }
             }
         }
