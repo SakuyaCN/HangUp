@@ -6,23 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5259b16c-0730-477d-bb52-a73b93ea7983" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/EquEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/entity/QuestEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/EquModule.java" afterDir="false" />
+    <list default="true" id="5259b16c-0730-477d-bb52-a73b93ea7983" name="Default Changelist" comment="quest&#10; api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/command/PlayerCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/player/PlayerModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/player/PlayerModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/command/PlayerCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/command/PlayerCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/entity/PlayerEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/entity/PlayerEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/event/JoinEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/event/JoinEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/bag/BagModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/bag/BagModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/create/PlayerCreate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/create/PlayerCreate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$OptionClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu$OptionClickEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/IconMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/MenuConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/menu/MenuConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/player/PlayerModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sakuya/hangup/modules/player/PlayerModule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/EquModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/EquModule.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/EquModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="50" column="66" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
+            <state relative-caret-position="516">
+              <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -504,7 +490,7 @@
       <workItem from="1565227217811" duration="22134000" />
       <workItem from="1565252805970" duration="13411000" />
       <workItem from="1565318358029" duration="30810000" />
-      <workItem from="1565600019175" duration="4150000" />
+      <workItem from="1565600019175" duration="6318000" />
     </task>
     <task id="LOCAL-00001" summary="首次上传">
       <created>1565352082811</created>
@@ -534,11 +520,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565600306153</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="quest&#10; api">
+      <created>1565605123697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1565605123697</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105383000" />
+    <option name="totallyTimeSpent" value="107551000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1061,8 +1054,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sakuya/hangup/modules/EquModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="50" column="66" selection-start-line="50" selection-start-column="66" selection-end-line="50" selection-end-column="66" />
+        <state relative-caret-position="516">
+          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -3,7 +3,9 @@ package com.sakuya.hangup.modules;
 import com.google.gson.Gson;
 import com.sakuya.hangup.entity.BagEntity;
 import com.sakuya.hangup.entity.EquEntity;
+import com.sakuya.hangup.entity.PlayerEntity;
 import com.sakuya.hangup.entity.QuestEntity;
+import com.sakuya.hangup.modules.player.PlayerModule;
 import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.FileUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -50,6 +52,16 @@ public class EquModule {
         entities.add(new EquEntity("1","毁灭之刃",1,"传说","武器",false,10000,""));
         entities.add(new EquEntity("2","血棘",1,"传说","衣服",false,3000,""));
         FileUtil.writeFile("UserConfig","QuestConfig",new Gson().toJson(entities));
+    }
+
+    public boolean putEqu(String uuid,EquEntity equEntity){
+        PlayerEntity playerEntity = PlayerModule.getInstance().onlinePlayer.get(uuid);
+        if(playerEntity!=null){
+
+        }else {
+         return false;
+        }
+        return false;
     }
 
     public void SaveEqu(String uuid,BagEntity bagEntity){
