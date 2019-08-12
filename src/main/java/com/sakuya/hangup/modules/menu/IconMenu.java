@@ -68,7 +68,7 @@ public class IconMenu implements Listener {
             int slot = event.getRawSlot();
             if (slot >= 0 && slot < size && optionNames[slot] != null) {
                 Plugin plugin = this.plugin;
-                OptionClickEvent e = new OptionClickEvent((Player)event.getWhoClicked(), slot, optionNames[slot]);
+                OptionClickEvent e = new OptionClickEvent((Player)event.getWhoClicked(), slot, optionNames[slot],event.isLeftClick());
                 handler.onOptionClick(e);
                 if (e.willClose()) {
                     final Player p = (Player)event.getWhoClicked();
@@ -95,10 +95,12 @@ public class IconMenu implements Listener {
         private String name;
         private boolean close;
         private boolean destroy;
+        private boolean isLeft;
 
-        public OptionClickEvent(Player player, int position, String name) {
+        public OptionClickEvent(Player player, int position, String name,boolean isLeft) {
             this.player = player;
             this.position = position;
+            this.isLeft = isLeft;
             this.name = name;
             this.close = false;
             this.destroy = false;
@@ -131,6 +133,10 @@ public class IconMenu implements Listener {
 
         public void setWillDestroy(boolean destroy) {
             this.destroy = destroy;
+        }
+
+        public boolean isLeft() {
+            return isLeft;
         }
     }
 

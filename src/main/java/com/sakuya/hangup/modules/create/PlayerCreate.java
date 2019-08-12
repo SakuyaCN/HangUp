@@ -56,6 +56,7 @@ public class PlayerCreate {
                             List<Integer> list = random(4,20);
                             ucu.userEntity.get(uuid).setAttr(new int[]{list.get(0),list.get(1),list.get(2),list.get(3)});
                             ucu.userEntity.get(uuid).setOtherAttr(new int[]{0,0,0,0});
+                            ucu.userEntity.get(uuid).setPlayerEqu(new int[]{0,0,0,0,0,0});
                             player.sendMessage(Util.getText("已选择职业：§c【"+ Util.getJobName(strings[1]) +"】"));
                             player.sendMessage(Util.getText("初始天赋属性如下，是否更换？"));
                             player.spigot().sendMessage(Util.getTc("§c§n[保存]","/humcmd create save"),Util.getTc("§c§n[更换]","/humcmd create change"));

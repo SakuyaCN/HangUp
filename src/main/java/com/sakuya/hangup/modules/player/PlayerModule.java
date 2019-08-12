@@ -6,8 +6,20 @@ import com.sakuya.hangup.entity.PlayerAttr;
 import com.sakuya.hangup.entity.PlayerEntity;
 
 import com.sakuya.hangup.modules.bag.BagModule;
+import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.FileUtil;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.chat.ComponentSerializer;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftMetaBook;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,7 +81,6 @@ public class PlayerModule {
     public PlayerEntity getPlayerEntity(String uuid){
         try {
             String json = new String(readAllBytes(get("./plugins/HangUp/PlayerData/"+uuid+".json")));
-            System.out.println(json);
             return new Gson().fromJson(json,PlayerEntity.class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -149,5 +160,29 @@ public class PlayerModule {
     public void SavePlayer(String uuid,PlayerEntity playerEntity){
         FileUtil.writeFile("PlayerData",uuid, new Gson().toJson(playerEntity));
         onlinePlayer.put(uuid,playerEntity);
+    }
+
+    public ItemStack getPlayerBook(String uuid) {
+        PlayerEntity player = onlinePlayer.get(uuid);
+        if(player==null){
+            return null;
+        }
+        try {
+            ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
+            BookMeta meta = (BookMeta) book.getItemMeta();
+            List<IChatBaseComponent> pages = (List<IChatBaseComponent>) CraftMetaBook.class.getDeclaredField("pages").get(meta); //This
+            TextComponent hi = new TextComponent(new ComponentBuilder("§2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB\n").create());
+            TextComponent hi2 = new TextComponent(new ComponentBuilder("§2111111111111111111111111111111112\n").create());
+            TextComponent hi3 = new TextComponent(new ComponentBuilder("§2啊沙发沙发沙发沙发沙发沙发沙发沙发阿三\n").create());
+            IChatBaseComponent page = IChatBaseComponent.ChatSerializer.a(ComponentSerializer.toString(new BaseComponent[]{hi,hi2,hi3})); //This
+            pages.add(page);
+            meta.setTitle("玩家界面");
+            meta.setAuthor("Optics Server");
+            book.setItemMeta(meta);
+            return book;
+        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException ex) {
+
+        }
+        return null;
     }
 }

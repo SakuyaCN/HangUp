@@ -66,7 +66,7 @@ public class BagModule {
         bagMenu = new IconMenu("玩家背包", 45, event -> {
             if(!event.getName().equals("未解锁")){
                 String uuid = event.getPlayer().getUniqueId().toString();
-                removeGoodes(uuid,onlineBag.get(uuid).getGoods().get(event.getPosition()).getGoodsEntity(),1);
+                //removeGoodes(uuid,onlineBag.get(uuid).getGoods().get(event.getPosition()).getGoodsEntity(),1);
             }
         }, Main.javaPlugin);
         BagEntity entity = onlineBag.get(player.getUniqueId().toString());

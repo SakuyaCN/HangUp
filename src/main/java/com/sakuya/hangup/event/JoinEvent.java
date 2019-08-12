@@ -2,19 +2,13 @@ package com.sakuya.hangup.event;
 
 import com.sakuya.hangup.modules.create.PlayerCreate;
 import com.sakuya.hangup.utils.BookUtils;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import net.md_5.bungee.api.chat.*;
-import net.minecraft.server.v1_12_R1.PacketDataSerializer;
-import net.minecraft.server.v1_12_R1.PacketPlayOutCustomPayload;
-import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.BookMeta;
+
+import static com.sakuya.hangup.modules.quest.QuestModule.getExampleBook;
 
 public class JoinEvent implements Listener {
 

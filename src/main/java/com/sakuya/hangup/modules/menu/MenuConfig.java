@@ -39,6 +39,8 @@ public class MenuConfig {
             strings.add("   §a抵 抗 性： "+playerEntity.getPlayerAttr().getRes());
             strings.add("   §a暴 击 率： "+playerEntity.getPlayerAttr().getCrit());
             strings.add("   §a破 甲 值： "+playerEntity.getPlayerAttr().getCt());
+            strings.add("§9§l——————————————————");
+            strings.add("§b§l点击进入玩家详情");
 
         }
         return strings;
@@ -108,6 +110,15 @@ public class MenuConfig {
         strings.add(" - §e技能类型： "+entity.getSkill_type());
         strings.add(" - §e可否遗忘： "+entity.isDelete());
         strings.add(" - §e技能说明： "+entity.getSkill_ctx());
+        return strings;
+    }
+
+    public static List<String> getQuestList(){
+        List<String> strings = new ArrayList<>();
+        strings.add("§9§l—————————————————————");
+        strings.add(" - §e§l【左键】点击进入任务列表");
+        strings.add("");
+        strings.add(" - §b§l【右键】点击进入我的任务");
         return strings;
     }
 }

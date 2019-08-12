@@ -8,6 +8,7 @@ import com.sakuya.hangup.modules.goods.GoodsModule;
 import com.sakuya.hangup.modules.menu.IconMenu;
 import com.sakuya.hangup.modules.menu.MenuConfig;
 import com.sakuya.hangup.modules.player.PlayerModule;
+import com.sakuya.hangup.modules.quest.QuestModule;
 import com.sakuya.hangup.modules.skill.SkillModule;
 import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.Util;
@@ -30,13 +31,22 @@ public class PlayerCommand implements CommandExecutor {
         Player player = (Player) commandSender;
         menu = new IconMenu("HangUp主菜单", 9, event -> {
             switch (event.getName()){
-                case "个人属性" :event.setWillClose(true); break;
+                case "个人属性" :{
+                    BookUtils.openBook(PlayerModule.getInstance().getPlayerBook(player.getUniqueId().toString()),player);
+                }; break;
                 case "技能" :{
                     SkillModule.getInstance().SkillClick(player,event);
                 }break;
                 case "背包":{
                     BagModule.getInstance().openBagMenu(player);
                     // BagModule.getInstance().addGoods(player.getUniqueId().toString(), GoodsModule.getInstance().getGoodsformJson().get(0),10);
+                }break;
+                case "任务":{
+                    if(event.isLeft()){
+                        QuestModule.getInstance().showQuestBook(player);
+                    }else{
+
+                    }
                 }break;
                 default:
                     event.setWillClose(true);
@@ -59,6 +69,8 @@ public class PlayerCommand implements CommandExecutor {
                             MenuConfig.getPlayerSkill(player.getUniqueId().toString()));
                     menu.setOption(2, new ItemStack(Material.CHEST, 1), "背包",
                             MenuConfig.getBagList(player.getUniqueId().toString()));
+                    menu.setOption(3, new ItemStack(Material.CHEST, 1), "任务",
+                            MenuConfig.getQuestList());
                     menu.open(player);
                 }break;
                 case "book" :{

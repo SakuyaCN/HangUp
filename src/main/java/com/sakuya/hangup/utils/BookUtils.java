@@ -28,12 +28,7 @@ public class BookUtils {
     public static boolean isInitialised(){
         return initialised;
     }
-    /**
-     * Open a "Virtual" Book ItemStack.
-     * @param i Book ItemStack.
-     * @param p Player that will open the book.
-     * @return
-     */
+
     public static boolean openBook(ItemStack i, Player p) {
         if (!initialised) return false;
         ItemStack held = p.getInventory().getItemInMainHand();
@@ -65,12 +60,6 @@ public class BookUtils {
         return null;
     }
 
-    /**
-     * Set the pages of the book in JSON format.
-     * @param metadata BookMeta of the Book ItemStack.
-     * @param pages Each page to be added to the book.
-     */
-    @SuppressWarnings("unchecked")
     public static void setPages(BookMeta metadata, List<String> pages) {
         List<Object> p;
         Object page;

@@ -2,11 +2,13 @@ package com.sakuya.hangup;
 
 import com.sakuya.hangup.command.HumCommand;
 import com.sakuya.hangup.command.PlayerCommand;
+import com.sakuya.hangup.entity.QuestEntity;
 import com.sakuya.hangup.event.JoinEvent;
 import com.sakuya.hangup.event.OutEvent;
 import com.sakuya.hangup.modules.goods.GoodsModule;
 import com.sakuya.hangup.modules.money.MoneyModule;
 import com.sakuya.hangup.modules.player.PlayerModule;
+import com.sakuya.hangup.modules.quest.QuestModule;
 import com.sakuya.hangup.modules.skill.SkillModule;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +39,7 @@ public class Main extends JavaPlugin {
             MoneyModule.getInstance().fristLoad();
             PlayerModule.getInstance().fristLoad();
             SkillModule.getInstance().fristLoad();
+            QuestModule.getInstance().firstLoad();
             getConfig().set("isfrist",false);
             saveConfig();
         }

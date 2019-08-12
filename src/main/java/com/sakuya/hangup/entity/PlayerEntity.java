@@ -14,6 +14,15 @@ public class PlayerEntity {
     private int[] otherAttr;//力量 智力 敏捷 精神
     private int[] skill;
     private PlayerAttr playerAttr;
+    private int[] playerEqu;
+
+    public int[] getPlayerEqu() {
+        return playerEqu;
+    }
+
+    public void setPlayerEqu(int[] playerEqu) {
+        this.playerEqu = playerEqu;
+    }
 
     public PlayerAttr getPlayerAttr() {
         return playerAttr;
