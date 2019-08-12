@@ -1,11 +1,13 @@
 package com.sakuya.hangup.modules.player;
 
 import com.google.gson.Gson;
+import com.sakuya.hangup.Main;
 import com.sakuya.hangup.entity.LvEntity;
 import com.sakuya.hangup.entity.PlayerAttr;
 import com.sakuya.hangup.entity.PlayerEntity;
 
 import com.sakuya.hangup.modules.bag.BagModule;
+import com.sakuya.hangup.modules.menu.IconMenu;
 import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.FileUtil;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -24,6 +26,7 @@ import org.bukkit.inventory.meta.BookMeta;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,6 +39,7 @@ public class PlayerModule {
     File file =new File("./plugins/HangUp/UserConfig/PlayerConfig.yml");
     private static volatile PlayerModule sInst = null;
     public YamlConfiguration playerCg = null;
+    private IconMenu equMenu;
     public static PlayerModule getInstance() {
         PlayerModule inst = sInst;
         if (inst == null) {
@@ -160,6 +164,22 @@ public class PlayerModule {
     public void SavePlayer(String uuid,PlayerEntity playerEntity){
         FileUtil.writeFile("PlayerData",uuid, new Gson().toJson(playerEntity));
         onlinePlayer.put(uuid,playerEntity);
+    }
+
+    public void openEquMenu(Player player){
+        equMenu = new IconMenu("玩家背包", 45, event -> {
+            if(!event.getName().equals("未解锁")){
+            }
+        }, Main.javaPlugin);
+        if(equMenu!=null) {
+            equMenu.setOption(12, new ItemStack(Material.DIAMOND_SWORD, 1), "武器", Arrays.asList("未解锁"));
+            equMenu.setOption(14, new ItemStack(Material.SHIELD, 1), "副手", Arrays.asList("未解锁"));
+            equMenu.setOption(21, new ItemStack(Material.DIAMOND_HELMET, 1), "头盔", Arrays.asList("未解锁"));
+            equMenu.setOption(23, new ItemStack(Material.DIAMOND_CHESTPLATE, 1), "衣服", Arrays.asList("未解锁"));
+            equMenu.setOption(30, new ItemStack(Material.DIAMOND_LEGGINGS, 1), "护腿", Arrays.asList("未解锁"));
+            equMenu.setOption(32, new ItemStack(Material.DIAMOND_BOOTS, 1), "鞋子", Arrays.asList("未解锁"));
+        }
+        equMenu.open(player);
     }
 
     public ItemStack getPlayerBook(String uuid) {

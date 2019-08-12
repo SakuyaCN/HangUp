@@ -32,7 +32,8 @@ public class PlayerCommand implements CommandExecutor {
         menu = new IconMenu("HangUp主菜单", 9, event -> {
             switch (event.getName()){
                 case "个人属性" :{
-                    BookUtils.openBook(PlayerModule.getInstance().getPlayerBook(player.getUniqueId().toString()),player);
+//                    BookUtils.openBook(PlayerModule.getInstance().getPlayerBook(player.getUniqueId().toString()),player);
+                    PlayerModule.getInstance().openEquMenu(player);
                 }; break;
                 case "技能" :{
                     SkillModule.getInstance().SkillClick(player,event);
@@ -69,7 +70,7 @@ public class PlayerCommand implements CommandExecutor {
                             MenuConfig.getPlayerSkill(player.getUniqueId().toString()));
                     menu.setOption(2, new ItemStack(Material.CHEST, 1), "背包",
                             MenuConfig.getBagList(player.getUniqueId().toString()));
-                    menu.setOption(3, new ItemStack(Material.CHEST, 1), "任务",
+                    menu.setOption(3, new ItemStack(Material.BOOK, 1), "任务",
                             MenuConfig.getQuestList());
                     menu.open(player);
                 }break;
