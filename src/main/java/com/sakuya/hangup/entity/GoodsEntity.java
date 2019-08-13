@@ -11,6 +11,10 @@ public class GoodsEntity {
     private int type_id;
     private String goods_ctx;
     private Material img;
+    private boolean isShow = true;
+
+    public GoodsEntity() {
+    }
 
     public GoodsEntity(int goods_id, String goods_name, int goods_lv, String goods_pz, String goods_type, int type_id, String goods_ctx, Material img) {
         this.goods_id = goods_id;
@@ -21,6 +25,14 @@ public class GoodsEntity {
         this.type_id = type_id;
         this.goods_ctx = goods_ctx;
         this.img = img;
+    }
+
+    public boolean isShow() {
+        return isShow;
+    }
+
+    public void setShow(boolean show) {
+        isShow = show;
     }
 
     public Material getImg() {

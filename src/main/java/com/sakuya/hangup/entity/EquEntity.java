@@ -1,7 +1,7 @@
 package com.sakuya.hangup.entity;
 
 public class EquEntity {
-    private String id;
+    private int id;
     private String name;
     private int lv;
     private String pz;
@@ -10,7 +10,7 @@ public class EquEntity {
     private int baseAttr;
     private String entry_attr;
 
-    public EquEntity(String id, String name, int lv, String pz, String type, boolean isbind, int baseAttr, String entry_attr) {
+    public EquEntity(int id, String name, int lv, String pz, String type, boolean isbind, int baseAttr, String entry_attr) {
         this.id = id;
         this.name = name;
         this.lv = lv;
@@ -21,11 +21,25 @@ public class EquEntity {
         this.entry_attr = entry_attr;
     }
 
-    public String getId() {
+    @Override
+    public String toString() {
+        return "EquEntity{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lv=" + lv +
+                ", pz='" + pz + '\'' +
+                ", type='" + type + '\'' +
+                ", isbind=" + isbind +
+                ", baseAttr=" + baseAttr +
+                ", entry_attr='" + entry_attr + '\'' +
+                '}';
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

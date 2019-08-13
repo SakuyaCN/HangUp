@@ -75,8 +75,10 @@ public class BagModule {
                 AtomicInteger code = new AtomicInteger(0);
                 if(entity.getGoods().size()>0){
                     entity.getGoods().forEach((bagGoods -> {
-                        bagMenu.setOption(code.get(), new ItemStack(bagGoods.getGoodsEntity().getImg(), 1), Util.colorText(bagGoods.getGoodsEntity().getGoods_pz(),bagGoods.getGoodsEntity().getGoods_name()),
-                                MenuConfig.getBagListInfo(bagGoods));
+                        if(bagGoods.getGoodsEntity().isShow()){
+                            bagMenu.setOption(code.get(), new ItemStack(bagGoods.getGoodsEntity().getImg(), 1), Util.colorText(bagGoods.getGoodsEntity().getGoods_pz(),bagGoods.getGoodsEntity().getGoods_name()),
+                                    MenuConfig.getBagListInfo(bagGoods));
+                        }
                         code.addAndGet(1);
                     }));
                 }
@@ -93,28 +95,57 @@ public class BagModule {
     public boolean addGoods(String uuid,GoodsEntity entity,int num){
         AtomicBoolean isNull = new AtomicBoolean(true);
         BagEntity bagEntity = onlineBag.get(uuid);
-        if(bagEntity.getGoods()!= null) {
+        if(!entity.getGoods_type().equals("装备")){
+            if(bagEntity.getGoods()!= null) {
+                if(bagEntity.getGoods().size()>=bagEntity.getBagMax()){
+                    return false;
+                }
+                bagEntity.getGoods().forEach((goods) -> {
+                    if (entity.getGoods_id() == goods.getGoodsEntity().getGoods_id()) {
+                        goods.setCount(goods.getCount() + num);
+                        isNull.set(false);
+                        return;
+                    }
+                });
+            }else{
+                List<BagGoods> list = new ArrayList<>();
+                list.add(new BagGoods(0,entity,num));
+                bagEntity.setGoods(list);
+                isNull.set(false);
+            }
+        }else{
             if(bagEntity.getGoods().size()>=bagEntity.getBagMax()){
                 return false;
+            }else{
+                isNull.set(true);
             }
-            bagEntity.getGoods().forEach((goods) -> {
-                if (entity.getGoods_id() == goods.getGoodsEntity().getGoods_id()) {
-                    goods.setCount(goods.getCount() + num);
-                    isNull.set(false);
-                    return;
-                }
-            });
-        }else{
-            List<BagGoods> list = new ArrayList<>();
-            list.add(new BagGoods(0,entity,num));
-            bagEntity.setGoods(list);
-            isNull.set(false);
         }
         if(isNull.get()){
             bagEntity.getGoods().add(new BagGoods(0,entity,num));
         }
         SaveBag(uuid,bagEntity);
         return true;
+    }
+
+    public GoodsEntity equ2Goods(EquEntity equEntity){
+        GoodsEntity goodsEntity = new GoodsEntity();
+        goodsEntity.setShow(true);
+        goodsEntity.setGoods_ctx("这是一件装备");
+        goodsEntity.setGoods_id(0);
+        goodsEntity.setGoods_name(equEntity.getName());
+        goodsEntity.setGoods_lv(equEntity.getLv());
+        goodsEntity.setGoods_pz(equEntity.getPz());
+        goodsEntity.setGoods_type("装备");
+        goodsEntity.setType_id(equEntity.getId());
+        switch (goodsEntity.getGoods_type()){
+            case "武器":goodsEntity.setImg(Material.DIAMOND_SWORD);break;
+            case "副手":goodsEntity.setImg(Material.SHIELD);break;
+            case "头盔":goodsEntity.setImg(Material.DIAMOND_HELMET);break;
+            case "衣服":goodsEntity.setImg(Material.DIAMOND_CHESTPLATE);break;
+            case "护腿":goodsEntity.setImg(Material.DIAMOND_LEGGINGS);break;
+            case "鞋子":goodsEntity.setImg(Material.DIAMOND_BOOTS);break;
+        }
+        return goodsEntity;
     }
 
     public boolean removeGoodes(String uuid,GoodsEntity entity,int num){
@@ -145,7 +176,6 @@ public class BagModule {
         if(isOk.get()){
             SaveBag(uuid,bagEntity);
         }
-        System.out.println("size "+ bagEntity.getGoods().size());
         return isOk.get();
     }
 

@@ -1,11 +1,15 @@
 package com.sakuya.hangup.modules.player;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.sakuya.hangup.Main;
+import com.sakuya.hangup.entity.EquEntity;
 import com.sakuya.hangup.entity.LvEntity;
 import com.sakuya.hangup.entity.PlayerAttr;
 import com.sakuya.hangup.entity.PlayerEntity;
 
+import com.sakuya.hangup.modules.EquModule;
 import com.sakuya.hangup.modules.bag.BagModule;
 import com.sakuya.hangup.modules.menu.IconMenu;
 import com.sakuya.hangup.utils.BookUtils;
@@ -22,6 +26,7 @@ import org.bukkit.craftbukkit.v1_12_R1.inventory.CraftMetaBook;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
 import java.io.IOException;
@@ -95,22 +100,27 @@ public class PlayerModule {
     public void playerJoin(String uuid){
         PlayerEntity playerEntity = getPlayerEntity(uuid);
         onlinePlayer.put(uuid,playerEntity);
-        new Thread(()->{
-            BagModule.getInstance().updateBagEntity(uuid);
-            reLoadPlayerAttr(uuid,playerEntity);
-
-        }).start();
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                BagModule.getInstance().updateBagEntity(uuid);
+                reLoadPlayerAttr(uuid,playerEntity);
+            }
+        }.run();
         System.out.println("join");
     }
 
     public void playerOut(String uuid){
         onlinePlayer.remove(uuid);
+        BagModule.getInstance().onlineBag.remove(uuid);
         System.out.println("quit");
     }
 
     public void reLoadPlayerAttr(String uuid,PlayerEntity entity){
+        long m = System.currentTimeMillis();
+        System.out.println("耗时："+m);
         PlayerAttr playerAttr;
-        int[] other = entity.getOtherAttr();
+        int[] other = new int[4];
         playerAttr = setAttr(entity);
         if(entity.getSkill()!=null){
             for (int i : entity.getSkill()){
@@ -142,9 +152,73 @@ public class PlayerModule {
                 }
             }
         }
+        if(entity.getPlayerEqu()!=null){
+            for(int index = 0;index < entity.getPlayerEqu().length;index++){
+                if(entity.getPlayerEqu()[index]!=0){
+                    for(int i=0;i<entity.getPlayerEqu().length;i++){
+                        if(entity.getPlayerEqu()[i] != 0){
+                            EquEntity equEntity = EquModule.getInstance().getEqu(entity.getPlayerEqu()[i]);
+                            System.out.println(equEntity.toString());
+                            switch (index){
+                                case 0:playerAttr.setAtk(playerAttr.getAtk()+equEntity.getBaseAttr());break;
+                                case 1:playerAttr.setmDef(playerAttr.getmDef()+equEntity.getBaseAttr());break;
+                                case 2:
+                                case 4:
+                                case 5:
+                                    playerAttr.setDef(playerAttr.getDef()+equEntity.getBaseAttr());break;
+                                case 3:playerAttr.setHp(playerAttr.getHp()+equEntity.getBaseAttr());break;
+                            }
+                            if(equEntity.getEntry_attr()!=null && !equEntity.getEntry_attr().isEmpty()){
+                                JsonObject jsonObject = null;
+                                try {
+                                    jsonObject = new Gson().fromJson(equEntity.getEntry_attr(), JsonObject.class);
+                                }catch (Exception e){
+                                    System.out.println("请检查配置文件格式是否正确！\n配置出错装备ID："+equEntity.getId());
+                                    return;
+                                }if(jsonObject==null) return;
+                                setEntryAttr(playerAttr,other,jsonObject);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         entity.setOtherAttr(other);
         entity.setPlayerAttr(playerAttr);
         SavePlayer(uuid,entity);
+        System.out.println("耗时："+(System.currentTimeMillis()-m));
+    }
+
+    public void setEntryAttr(PlayerAttr playerAttr,int[] other,JsonObject jsonObject){
+        if(jsonObject.get("atk")!=null){
+            playerAttr.setAtk(playerAttr.getAtk()+jsonObject.get("atk").getAsInt());
+        }if(jsonObject.get("def")!=null){
+            playerAttr.setDef(playerAttr.getDef()+jsonObject.get("def").getAsInt());
+        }if(jsonObject.get("hp")!=null){
+            playerAttr.setHp(playerAttr.getHp()+jsonObject.get("hp").getAsInt());
+        }if(jsonObject.get("mv")!=null){
+            playerAttr.setMv(playerAttr.getMv()+jsonObject.get("mv").getAsInt());
+        }if(jsonObject.get("mdef")!=null){
+            playerAttr.setmDef(playerAttr.getmDef()+jsonObject.get("mdef").getAsInt());
+        }if(jsonObject.get("res")!=null){
+            playerAttr.setRes(playerAttr.getRes()+jsonObject.get("res").getAsInt());
+        }if(jsonObject.get("crit")!=null){
+            playerAttr.setCrit(playerAttr.getCrit()+jsonObject.get("crit").getAsInt());
+        }if(jsonObject.get("ct")!=null){
+            playerAttr.setCt(playerAttr.getCt()+jsonObject.get("ct").getAsInt());
+        }if(jsonObject.get("speed")!=null){
+            playerAttr.setSpeed(playerAttr.getSpeed()+jsonObject.get("speed").getAsInt());
+        }if(jsonObject.get("power")!=null){
+            other[0] = other[0] + jsonObject.get("power").getAsInt();
+        }if(jsonObject.get("intelligence")!=null){
+            other[1] = other[1] + jsonObject.get("intelligence").getAsInt();
+        }if(jsonObject.get("agile")!=null){
+            other[2] = other[2] + jsonObject.get("agile").getAsInt();
+        }if(jsonObject.get("spirit")!=null){
+            other[3] = other[3] + jsonObject.get("spirit").getAsInt();
+        }
+        setOther(playerAttr,other);
     }
 
     public PlayerAttr setAttr(PlayerEntity entity){
@@ -159,6 +233,18 @@ public class PlayerModule {
         playerAttr.setCt(0+entity.getAttr()[1]);
         playerAttr.setSpeed(100+entity.getAttr()[2]);
         return playerAttr;
+    }
+
+    public void setOther(PlayerAttr playerAttr,int[] other){
+        playerAttr.setHp(playerAttr.getHp()+other[0] * 10);
+        playerAttr.setAtk(playerAttr.getAtk()+other[0] * 5);
+        playerAttr.setDef(playerAttr.getDef()+other[2] * 4);
+        playerAttr.setmDef(playerAttr.getmDef()+other[3]*2);
+        playerAttr.setMv(playerAttr.getMv()+other[1] * 10);
+        playerAttr.setCrit(0);
+        playerAttr.setRes(playerAttr.getRes()+other[3]);
+        playerAttr.setCt(playerAttr.getCt()+other[1]);
+        playerAttr.setSpeed(playerAttr.getSpeed()+other[2]);
     }
 
     public void SavePlayer(String uuid,PlayerEntity playerEntity){

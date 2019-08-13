@@ -1,9 +1,6 @@
 package com.sakuya.hangup.modules.menu;
 
-import com.sakuya.hangup.entity.BagEntity;
-import com.sakuya.hangup.entity.BagGoods;
-import com.sakuya.hangup.entity.PlayerEntity;
-import com.sakuya.hangup.entity.SkillEntity;
+import com.sakuya.hangup.entity.*;
 import com.sakuya.hangup.modules.bag.BagModule;
 import com.sakuya.hangup.modules.player.PlayerModule;
 import com.sakuya.hangup.modules.skill.SkillModule;
@@ -11,6 +8,7 @@ import com.sakuya.hangup.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MenuConfig {
 
@@ -72,14 +70,17 @@ public class MenuConfig {
         BagEntity bagEntity = BagModule.getInstance().onlineBag.get(uuid);
         List<String> strings = new ArrayList<>();
         if(bagEntity!=null){
-            int num = 0;
+            AtomicInteger num = new AtomicInteger();
             if (bagEntity.getGoods() != null){
-                num = bagEntity.getGoods().size();
+                bagEntity.getGoods().forEach(item->{
+                    if(item.getGoodsEntity().isShow())
+                        num.addAndGet(1);
+                });
             }
             strings.add("§9§l——————————————————");
             strings.add("§b背包容量:"+bagEntity.getBagMax());
             strings.add("");
-            strings.add("§a已用容量:"+num);
+            strings.add("§a已用容量:"+num.get());
             strings.add("§9§l——————————————————");
             strings.add("§6点击进入背包");
         }
@@ -114,6 +115,15 @@ public class MenuConfig {
     }
 
     public static List<String> getQuestList(){
+        List<String> strings = new ArrayList<>();
+        strings.add("§9§l—————————————————————");
+        strings.add(" - §e§l【左键】点击进入任务列表");
+        strings.add("");
+        strings.add(" - §b§l【右键】点击进入我的任务");
+        return strings;
+    }
+
+    public static List<String> getGoodsList(GoodsEntity goodsEntity){
         List<String> strings = new ArrayList<>();
         strings.add("§9§l—————————————————————");
         strings.add(" - §e§l【左键】点击进入任务列表");

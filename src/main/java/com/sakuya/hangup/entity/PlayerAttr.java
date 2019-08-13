@@ -6,9 +6,9 @@ public class PlayerAttr {
     private int atk;
     private int def;
     private int mDef;
-    private int res;
-    private int crit;
-    private int ct;
+    private int res; //dikang
+    private int crit; //baoji
+    private int ct; //pojia
     private int speed;
 
     public int getmDef() {

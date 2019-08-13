@@ -23,6 +23,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerCommand implements CommandExecutor {
     private IconMenu menu;
@@ -33,7 +34,12 @@ public class PlayerCommand implements CommandExecutor {
             switch (event.getName()){
                 case "个人属性" :{
 //                    BookUtils.openBook(PlayerModule.getInstance().getPlayerBook(player.getUniqueId().toString()),player);
-                    PlayerModule.getInstance().openEquMenu(player);
+                    new BukkitRunnable(){
+                        @Override
+                        public void run() {
+                            PlayerModule.getInstance().openEquMenu(player);
+                        }
+                    }.run();
                 }; break;
                 case "技能" :{
                     SkillModule.getInstance().SkillClick(player,event);
