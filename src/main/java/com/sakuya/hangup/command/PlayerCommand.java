@@ -80,8 +80,8 @@ public class PlayerCommand implements CommandExecutor {
                             MenuConfig.getQuestList());
                     menu.open(player);
                 }break;
-                case "book" :{
-
+                case "add" :{
+                    BagModule.getInstance().addGoods(player.getUniqueId().toString(), GoodsModule.getInstance().getGoodsformJson().get(1),1);
                 }
             }
         }

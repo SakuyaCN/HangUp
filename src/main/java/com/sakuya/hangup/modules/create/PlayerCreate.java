@@ -3,11 +3,14 @@ package com.sakuya.hangup.modules.create;
 import com.google.gson.Gson;
 import com.sakuya.hangup.entity.BagEntity;
 import com.sakuya.hangup.entity.PlayerEntity;
+import com.sakuya.hangup.modules.EquModule;
 import com.sakuya.hangup.modules.bag.BagModule;
+import com.sakuya.hangup.modules.goods.GoodsModule;
 import com.sakuya.hangup.modules.player.PlayerModule;
 import com.sakuya.hangup.utils.FileUtil;
 import com.sakuya.hangup.utils.UserCmdUtils;
 import com.sakuya.hangup.utils.Util;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -29,6 +32,8 @@ public class PlayerCreate {
         }else{
             player.sendMessage(Util.getText("输入 /hum menu 打开菜单"));
             PlayerModule.getInstance().playerJoin(uuid);
+
+            //BagModule.getInstance().addGoods(uuid, BagModule.getInstance().equ2Goods(EquModule.getInstance().getEqu(1)),1);
         }
     }
 
@@ -43,7 +48,7 @@ public class PlayerCreate {
                     switch (ucu.userCmdMap.get(uuid)){
                         case 1 : {
                             player.sendMessage(Util.getText("请选择您的职业(请在120秒内完成)"));
-                            player.spigot().sendMessage(Util.getTc("§c§n[射手]", "/humcmd create shooter"), Util.getTc("§c§n[法师]", "/humcmd create mage"), Util.getTc("§c§n[战士]", "/humcmd create warrior"));
+                            player.spigot().sendMessage(Util.getTc(ChatColor.AQUA + "【HangUp】"+"§c§n[射手]", "/humcmd create shooter"), Util.getTc("§c§n[法师]", "/humcmd create mage"), Util.getTc("§c§n[战士]", "/humcmd create warrior"));
                             ucu.userEntity.put(uuid,new PlayerEntity());
                             ucu.userCmdMap.put(uuid,2);
                         }break;

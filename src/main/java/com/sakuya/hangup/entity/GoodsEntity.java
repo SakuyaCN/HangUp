@@ -98,4 +98,19 @@ public class GoodsEntity {
     public void setGoods_ctx(String goods_ctx) {
         this.goods_ctx = goods_ctx;
     }
+
+    @Override
+    public String toString() {
+        return "GoodsEntity{" +
+                "goods_id=" + goods_id +
+                ", goods_name='" + goods_name + '\'' +
+                ", goods_lv=" + goods_lv +
+                ", goods_pz='" + goods_pz + '\'' +
+                ", goods_type='" + goods_type + '\'' +
+                ", type_id=" + type_id +
+                ", goods_ctx='" + goods_ctx + '\'' +
+                ", img=" + img +
+                ", isShow=" + isShow +
+                '}';
+    }
 }

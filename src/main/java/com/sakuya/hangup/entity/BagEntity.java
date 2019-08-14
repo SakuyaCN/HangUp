@@ -40,5 +40,14 @@ public class BagEntity {
     public void setGoods(List<BagGoods> goods) {
         this.goods = goods;
     }
+
+    @Override
+    public String toString() {
+        return "BagEntity{" +
+                "uuid='" + uuid + '\'' +
+                ", bagMax=" + bagMax +
+                ", goods=" + goods +
+                '}';
+    }
 }
 

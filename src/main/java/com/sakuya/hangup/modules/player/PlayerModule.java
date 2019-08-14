@@ -12,8 +12,10 @@ import com.sakuya.hangup.entity.PlayerEntity;
 import com.sakuya.hangup.modules.EquModule;
 import com.sakuya.hangup.modules.bag.BagModule;
 import com.sakuya.hangup.modules.menu.IconMenu;
+import com.sakuya.hangup.modules.menu.MenuConfig;
 import com.sakuya.hangup.utils.BookUtils;
 import com.sakuya.hangup.utils.FileUtil;
+import com.sakuya.hangup.utils.Util;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -44,7 +46,6 @@ public class PlayerModule {
     File file =new File("./plugins/HangUp/UserConfig/PlayerConfig.yml");
     private static volatile PlayerModule sInst = null;
     public YamlConfiguration playerCg = null;
-    private IconMenu equMenu;
     public static PlayerModule getInstance() {
         PlayerModule inst = sInst;
         if (inst == null) {
@@ -248,24 +249,55 @@ public class PlayerModule {
     }
 
     public void SavePlayer(String uuid,PlayerEntity playerEntity){
-        FileUtil.writeFile("PlayerData",uuid, new Gson().toJson(playerEntity));
-        onlinePlayer.put(uuid,playerEntity);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                FileUtil.writeFile("PlayerData",uuid, new Gson().toJson(playerEntity));
+                onlinePlayer.put(uuid,playerEntity);
+            }
+        }.run();
     }
 
     public void openEquMenu(Player player){
-        equMenu = new IconMenu("玩家背包", 45, event -> {
-            if(!event.getName().equals("未解锁")){
+        PlayerEntity playerEntity = onlinePlayer.get(player.getUniqueId().toString());
+        IconMenu equMenu = new IconMenu("玩家装备", 45, event -> {
+            if(event.getName()!=null){
+                switch (event.getPosition()){
+                    case 12:sendPlayer(player,playerEntity.getPlayerEqu()[0]); break;
+                    case 14:sendPlayer(player,playerEntity.getPlayerEqu()[1]); break;
+                    case 21:sendPlayer(player,playerEntity.getPlayerEqu()[2]);break;
+                    case 23:sendPlayer(player,playerEntity.getPlayerEqu()[3]);break;
+                    case 30:sendPlayer(player,playerEntity.getPlayerEqu()[4]);break;
+                    case 32:sendPlayer(player,playerEntity.getPlayerEqu()[5]);break;
+                }
+                event.setWillClose(true);
             }
         }, Main.javaPlugin);
         if(equMenu!=null) {
-            equMenu.setOption(12, new ItemStack(Material.DIAMOND_SWORD, 1), "武器", Arrays.asList("未解锁"));
-            equMenu.setOption(14, new ItemStack(Material.SHIELD, 1), "副手", Arrays.asList("未解锁"));
-            equMenu.setOption(21, new ItemStack(Material.DIAMOND_HELMET, 1), "头盔", Arrays.asList("未解锁"));
-            equMenu.setOption(23, new ItemStack(Material.DIAMOND_CHESTPLATE, 1), "衣服", Arrays.asList("未解锁"));
-            equMenu.setOption(30, new ItemStack(Material.DIAMOND_LEGGINGS, 1), "护腿", Arrays.asList("未解锁"));
-            equMenu.setOption(32, new ItemStack(Material.DIAMOND_BOOTS, 1), "鞋子", Arrays.asList("未解锁"));
+            equMenu.setOption(12, new ItemStack(Material.DIAMOND_SWORD, 1), "武器", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[0])));
+            equMenu.setOption(14, new ItemStack(Material.SHIELD, 1), "副手", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[1])));
+            equMenu.setOption(21, new ItemStack(Material.DIAMOND_HELMET, 1), "头盔", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[2])));
+            equMenu.setOption(23, new ItemStack(Material.DIAMOND_CHESTPLATE, 1), "衣服", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[3])));
+            equMenu.setOption(30, new ItemStack(Material.DIAMOND_LEGGINGS, 1), "护腿", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[4])));
+            equMenu.setOption(32, new ItemStack(Material.DIAMOND_BOOTS, 1), "鞋子", getEquInfo(EquModule.getInstance().getEqu(playerEntity.getPlayerEqu()[5])));
         }
         equMenu.open(player);
+    }
+
+    private void sendPlayer(Player player,int id){
+        if(id==0){
+            return;
+        }
+        EquEntity equEntity = EquModule.getInstance().getEqu(id);
+        player.spigot().sendMessage(Util.getHc("§b鼠标移至名称查看：§n"+Util.colorText(equEntity.getPz(),equEntity.getName()),MenuConfig.getEquInfo(equEntity)));
+        player.spigot().sendMessage(Util.getTc("§b操作该装备：",""),Util.getTc("§a§n[卸下]","/humcmd downEqu "+equEntity.getId()),Util.getTc("§a§n[展示]","/humcmd showEqu "+equEntity.getId()));
+    }
+
+    public List<String> getEquInfo(EquEntity equEntity){
+        if(equEntity!=null){
+            return MenuConfig.getEquInfo(equEntity);
+        }
+        return Arrays.asList("未装备");
     }
 
     public ItemStack getPlayerBook(String uuid) {

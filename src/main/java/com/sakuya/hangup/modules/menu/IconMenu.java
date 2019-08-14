@@ -1,5 +1,6 @@
 package com.sakuya.hangup.modules.menu;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
-public class IconMenu implements Listener {
+public class IconMenu<T> implements Listener {
 
     private String name;
     private int size;
@@ -89,13 +90,14 @@ public class IconMenu implements Listener {
         public void onOptionClick(OptionClickEvent event);
     }
 
-    public class OptionClickEvent {
+    public static class OptionClickEvent<T> {
         private Player player;
         private int position;
         private String name;
         private boolean close;
         private boolean destroy;
         private boolean isLeft;
+        private T obj;
 
         public OptionClickEvent(Player player, int position, String name,boolean isLeft) {
             this.player = player;
@@ -103,9 +105,16 @@ public class IconMenu implements Listener {
             this.isLeft = isLeft;
             this.name = name;
             this.close = false;
-            this.destroy = false;
+            this.destroy = true;
         }
 
+        public T getObj() {
+            return obj;
+        }
+
+        public void setObj(T obj) {
+            this.obj = obj;
+        }
 
         public Player getPlayer() {
             return player;

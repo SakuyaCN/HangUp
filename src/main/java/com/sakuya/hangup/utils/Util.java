@@ -1,7 +1,6 @@
 package com.sakuya.hangup.utils;
 
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.*;
 import org.bukkit.ChatColor;
 
 import java.util.ArrayList;
@@ -15,8 +14,18 @@ public class Util {
     }
 
     public static TextComponent getTc(String text,String cmd){
-        TextComponent tcMessage = new TextComponent(Util.getText(text));
+        TextComponent tcMessage = new TextComponent("   "+text);
         tcMessage.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,cmd));
+        return tcMessage;
+    }
+
+    public static TextComponent getHc(String text,List<String> strings){
+        TextComponent tcMessage = new TextComponent(Util.getText(text));
+        StringBuilder stringBuilder = new StringBuilder();
+        strings.forEach(s -> {
+            stringBuilder.append(s+"\n");
+        });
+        tcMessage.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,new ComponentBuilder(stringBuilder.toString()).create()));
         return tcMessage;
     }
 
