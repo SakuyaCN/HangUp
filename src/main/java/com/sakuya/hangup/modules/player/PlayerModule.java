@@ -263,8 +263,8 @@ public class PlayerModule {
         IconMenu equMenu = new IconMenu("玩家装备", 45, event -> {
             if(event.getName()!=null){
                 switch (event.getPosition()){
-                    case 12:sendPlayer(player,playerEntity.getPlayerEqu()[0]); break;
-                    case 14:sendPlayer(player,playerEntity.getPlayerEqu()[1]); break;
+                    case 12:sendPlayer(player,playerEntity.getPlayerEqu()[0]);break;
+                    case 14:sendPlayer(player,playerEntity.getPlayerEqu()[1]);break;
                     case 21:sendPlayer(player,playerEntity.getPlayerEqu()[2]);break;
                     case 23:sendPlayer(player,playerEntity.getPlayerEqu()[3]);break;
                     case 30:sendPlayer(player,playerEntity.getPlayerEqu()[4]);break;

@@ -30,6 +30,7 @@ public class HumCommand implements CommandExecutor {
                 EquModule.getInstance().putEqu(player.getUniqueId().toString(),equEntity);
             }break;
             case "downEqu":{
+                System.out.println("downequ");
                 EquEntity equEntity = EquModule.getInstance().getEqu(Integer.parseInt(strings[1]));
                 EquModule.getInstance().downEqu(player.getUniqueId().toString(),equEntity);
             }break;

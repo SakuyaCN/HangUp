@@ -2,15 +2,21 @@ package com.sakuya.hangup.modules;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sakuya.hangup.Main;
 import com.sakuya.hangup.entity.*;
 import com.sakuya.hangup.modules.bag.BagModule;
+import com.sakuya.hangup.modules.menu.MenuConfig;
 import com.sakuya.hangup.modules.player.PlayerModule;
 import com.sakuya.hangup.utils.FileUtil;
+import com.sakuya.hangup.utils.Util;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.BaseComponent;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static java.nio.file.Files.readAllBytes;
@@ -83,7 +89,12 @@ public class EquModule {
     }
 
     public void putEquOrBag(int index,PlayerEntity playerEntity,String uuid,EquEntity equEntity){
+        Player player = Main.javaPlugin.getServer().getPlayer(UUID.fromString(uuid));
         BagEntity bagEntity = BagModule.getInstance().onlineBag.get(uuid);
+        if(equEntity.getLv()>playerEntity.getLv()){
+            player.sendMessage(Util.getText("等级不足，无法穿戴"));
+            return;
+        }
         bagEntity.getGoods().forEach(item->{
             if(item.getGoodsEntity().getType_id() == playerEntity.getPlayerEqu()[index]){
                 item.getGoodsEntity().setShow(true);
@@ -94,6 +105,8 @@ public class EquModule {
         playerEntity.getPlayerEqu()[index] = equEntity.getId();
         PlayerModule.getInstance().reLoadPlayerAttr(uuid,playerEntity);
         BagModule.getInstance().SaveBag(uuid,bagEntity);
+        player.sendMessage(Util.getText("已穿戴装备【"+ Util.colorText(equEntity.getPz(),equEntity.getName()) +"】"));
+        showAttr(MenuConfig.updateEquInfo(equEntity,"§a+"),player);
     }
 
     public boolean downEqu(String uuid,EquEntity equEntity){
@@ -114,21 +127,40 @@ public class EquModule {
     }
 
     public boolean downEquOrBag(int index,PlayerEntity playerEntity,String uuid){
+        Player player = Main.javaPlugin.getServer().getPlayer(UUID.fromString(uuid));
         BagEntity bagEntity = BagModule.getInstance().onlineBag.get(uuid);
         if(BagModule.getInstance().getRealSize(bagEntity)>=bagEntity.getBagMax()){
+            player.sendMessage(Util.getText("背包已满， 请先清理背包！"));
             return false;
         }else{
             bagEntity.getGoods().forEach(item->{
-                if(item.getGoodsEntity().getType_id() == playerEntity.getPlayerEqu()[index]){
+                if(item.getGoodsEntity().getType_id() == playerEntity.getPlayerEqu()[index] && item.getGoodsEntity().getGoods_type().equals("装备")){
                     item.getGoodsEntity().setShow(true);
                     playerEntity.getPlayerEqu()[index] = 0;
                     PlayerModule.getInstance().reLoadPlayerAttr(uuid,playerEntity);
                     BagModule.getInstance().SaveBag(uuid,bagEntity);
+                    player.sendMessage(Util.getText("已卸下装备【"+ Util.colorText(item.getGoodsEntity().getGoods_pz(),item.getGoodsEntity().getGoods_name()) +"】"));
+                    showAttr(MenuConfig.updateEquInfo(EquModule.getInstance().getEqu(item.getGoodsEntity().getType_id()),"§a-"),player);
                     return;
                 }
             });
         }
         return false;
+    }
+
+    public void showAttr(List<String> strings,Player player){
+        Timer timer = new Timer();
+        final int[] a= {0};
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                TextComponent tcMessage = new TextComponent(strings.get(a[0]));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, tcMessage);
+                a[0]++;
+                if(a[0] == strings.size())
+                    timer.cancel();
+            }
+        },0,200L);
     }
 
     public void SaveEqu(String uuid,BagEntity bagEntity){

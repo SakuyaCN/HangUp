@@ -144,13 +144,13 @@ public class MenuConfig {
         strings.add("§9§l—————————————————————");
         strings.add("§7基础属性：");
         switch (equEntity.getType()){
-            case "武器": strings.add("   §a基础攻击+ "+equEntity.getBaseAttr()); break;
-            case "副手": strings.add("   §a基础法防+ "+equEntity.getBaseAttr()); break;
+            case "武器": strings.add("   §a基础攻击 "+equEntity.getBaseAttr()); break;
+            case "副手": strings.add("   §a基础法防 "+equEntity.getBaseAttr()); break;
             case "头盔":
             case "护腿":
             case "鞋子":
-                strings.add("   §a基础物防+ "+equEntity.getBaseAttr()); break;
-            case "衣服": strings.add("   §a基础生命+ "+equEntity.getBaseAttr()); break;
+                strings.add("   §a基础物防 "+equEntity.getBaseAttr()); break;
+            case "衣服": strings.add("   §a基础生命 "+equEntity.getBaseAttr()); break;
         }
         if(equEntity.getEntry_attr()!=null && !equEntity.getEntry_attr().isEmpty()){
             strings.add("§9§l—————————————————————");
@@ -161,40 +161,63 @@ public class MenuConfig {
             }catch (Exception e){
                 System.out.println("请检查配置文件格式是否正确！\n配置出错装备ID："+equEntity.getId());
             }if(jsonObject!=null) {
-                setEntryAttr(jsonObject,strings);
+                setEntryAttr(jsonObject,strings,"");
             }
         }
         return strings;
     }
 
-    public static void setEntryAttr(JsonObject jsonObject,List<String> strings){
+    public static void setEntryAttr(JsonObject jsonObject,List<String> strings,String s){
         if(jsonObject.get("atk")!=null){
-            strings.add("   §d攻击+ "+jsonObject.get("atk").getAsInt());
+            strings.add(s+"   §d攻击 "+jsonObject.get("atk").getAsInt());
         }if(jsonObject.get("def")!=null){
-            strings.add("   §d防御+ "+jsonObject.get("def").getAsInt());
+            strings.add(s+"   §d防御 "+jsonObject.get("def").getAsInt());
         }if(jsonObject.get("hp")!=null){
-            strings.add("   §d生命+ "+jsonObject.get("hp").getAsInt());
+            strings.add(s+"   §d生命 "+jsonObject.get("hp").getAsInt());
         }if(jsonObject.get("mv")!=null){
-            strings.add("   §d魔力+ "+jsonObject.get("mv").getAsInt());
+            strings.add(s+"   §d魔力 "+jsonObject.get("mv").getAsInt());
         }if(jsonObject.get("mdef")!=null){
-            strings.add("   §d法防+ "+jsonObject.get("mdef").getAsInt());
+            strings.add(s+"   §d法防 "+jsonObject.get("mdef").getAsInt());
         }if(jsonObject.get("res")!=null){
-            strings.add("   §d抵抗+ "+jsonObject.get("res").getAsInt());
+            strings.add(s+"   §d抵抗 "+jsonObject.get("res").getAsInt());
         }if(jsonObject.get("crit")!=null){
-            strings.add("   §d暴击+ "+jsonObject.get("crit").getAsInt());
+            strings.add(s+"   §d暴击 "+jsonObject.get("crit").getAsInt());
         }if(jsonObject.get("ct")!=null){
-            strings.add("   §d破甲+ "+jsonObject.get("ct").getAsInt());
+            strings.add(s+"   §d破甲 "+jsonObject.get("ct").getAsInt());
         }if(jsonObject.get("speed")!=null){
-            strings.add("   §d速度+ "+jsonObject.get("speed").getAsInt());
+            strings.add(s+"   §d速度 "+jsonObject.get("speed").getAsInt());
         }if(jsonObject.get("power")!=null){
-            strings.add("   §d力量+ "+jsonObject.get("power").getAsInt());
+            strings.add(s+"   §d力量 "+jsonObject.get("power").getAsInt());
         }if(jsonObject.get("intelligence")!=null){
-            strings.add("   §d智力+ "+jsonObject.get("intelligence").getAsInt());
+            strings.add(s+"   §d智力 "+jsonObject.get("intelligence").getAsInt());
         }if(jsonObject.get("agile")!=null){
-            strings.add("   §d敏捷+ "+jsonObject.get("agile").getAsInt());
+            strings.add(s+"   §d敏捷 "+jsonObject.get("agile").getAsInt());
         }if(jsonObject.get("spirit")!=null){
-            strings.add("   §d精神+ "+jsonObject.get("spirit").getAsInt());
+            strings.add(s+"   §d精神 "+jsonObject.get("spirit").getAsInt());
         }
     }
 
+    public static List<String> updateEquInfo(EquEntity equEntity,String s){
+        List<String> strings = new ArrayList<>();
+        switch (equEntity.getType()){
+            case "武器": strings.add(s+"   §d基础攻击 "+equEntity.getBaseAttr()); break;
+            case "副手": strings.add(s+"   §d基础法防 "+equEntity.getBaseAttr()); break;
+            case "头盔":
+            case "护腿":
+            case "鞋子":
+                strings.add(s+"   §d基础物防 "+ equEntity.getBaseAttr()); break;
+            case "衣服": strings.add(s+"   §d基础生命 "+equEntity.getBaseAttr()); break;
+        }
+        if(equEntity.getEntry_attr()!=null && !equEntity.getEntry_attr().isEmpty()){
+            JsonObject jsonObject = null;
+            try {
+                jsonObject = new Gson().fromJson(equEntity.getEntry_attr(), JsonObject.class);
+            }catch (Exception e){
+                System.out.println("请检查配置文件格式是否正确！\n配置出错装备ID："+equEntity.getId());
+            }if(jsonObject!=null) {
+                setEntryAttr(jsonObject,strings,s);
+            }
+        }
+        return strings;
+    }
 }

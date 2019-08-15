@@ -9,6 +9,8 @@ import com.sakuya.hangup.entity.PlayerEntity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
@@ -57,11 +59,30 @@ public class test {
 //            System.out.println("bbb");
 //        }
 
-        List<Object> list = new ArrayList<>();
-        list.add(new PlayerAttr());
-        list.add(null);
-        list.add(new PlayerAttr());
-        System.out.println(list.size());
+//        List<Object> list = new ArrayList<>();
+//        list.add(new PlayerAttr());
+//        list.add(null);
+//        list.add(new PlayerAttr());
+//        System.out.println(list.size());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0;i<5;i++){
+                    final int[] a = {0};
+                    Timer timer = new Timer();
+                    int finalI = i;
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            System.out.println(finalI +"asdasdasd");
+                            a[0]++;
+                            if(a[0] == 10)
+                                timer.cancel();
+                        }
+                    },0,1000L+(i*1000));
+                }
+            }
+        }).run();
     }
 
     public static void da(PlayerAttr playerAttr){
